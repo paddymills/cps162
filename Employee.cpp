@@ -1,5 +1,5 @@
-#include "Employee.h"
 #include <iostream>
+#include "Employee.h"
 
 using namespace std;
 
@@ -8,7 +8,7 @@ void outputEmployee(Employee);
 
 int main() {
     // create employee1
-    Employee susan = Employee("Susan Meyers", 47899, "Accounting", "Vice President");
+    Employee susan("Susan Meyers", 47899, "Accounting", "Vice President");
 
     // employee 2
     // Employee* mark = new Employee("Mark Jones", 39119);

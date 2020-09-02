@@ -6,55 +6,52 @@ using namespace std;
 
 class Employee
 {
-private:
-  string name;
-  int idNumber;
-  string department;
-  string position;
+  private:
+    string name;
+    int idNumber;
+    string department;
+    string position;
 
-public:
-  void setName(string n)
-    { name = n; }
-  void setIdNumber(int id)
-    { idNumber = id; }
-  void setDepartment(string dept)
-    { department = dept; }
-  void setPosition(string pos)
-    { position = pos; }
+  public:
+    Employee(string n, int id, string dept, string pos)
+    {
+      name = n;
+      idNumber = id;
+      department = dept;
+      position = pos;
+    }
+    Employee(string n, int id)
+    {
+      name = n;
+      idNumber = id;
+      department = "";
+      position = "";
+    }
+    Employee()
+    {
+      name = "";
+      idNumber = 0;
+      department = "";
+      position = "";
+    }
 
-  string getName() const
-    { return name; }
-  int getIdNumber() const
-    { return idNumber; }
-  string getPosition() const
-    { return department; }
-  string getDepartment() const
-    { return position; }
+    void setName(string n)
+      { name = n; }
+    void setIdNumber(int id)
+      { idNumber = id; }
+    void setDepartment(string dept)
+      { department = dept; }
+    void setPosition(string pos)
+      { position = pos; }
 
-  Employee(string n, int id, string dept, string pos)
-  {
-    name = n;
-    idNumber = id;
-    department = dept;
-    position = pos;
-  }
-  Employee(string n, int id)
-  {
-    name = n;
-    idNumber = id;
-    department = "";
-    position = "";
-  }
-  Employee()
-  {
-    name = "";
-    idNumber = 0;
-    department = "";
-    position = "";
-  }
-
-
-  // ~Employee();
+    string getName() const
+      { return name; }
+    int getIdNumber() const
+      { return idNumber; }
+    string getPosition() const
+      { return department; }
+    string getDepartment() const
+      { return position; }
 };
 
 #endif
