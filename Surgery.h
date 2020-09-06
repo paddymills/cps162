@@ -2,11 +2,21 @@
 
 class PatientAccount;
 
+enum SurgeryType
+{
+  Appendectomy,
+  HepaticResection,
+  Arthroscopy,
+  Laparoscopy,
+  GastricBypass
+};
+
+#ifndef SURGERY_H
+#define SURGERY_H
 class Surgery
 {
-private:
-  /* data */
 public:
-  Surgery(/* args */);
-  ~Surgery();
+  void addSurgery(SurgeryType, PatientAccount &);
 };
+
+#endif

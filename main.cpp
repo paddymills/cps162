@@ -1,45 +1,71 @@
 #include <iostream>
+#include <string>
+
+#include "PatientAccount.h"
+#include "Pharmacy.h"
+#include "Surgery.h"
 
 using namespace std;
 
-int displayPatientMenu();
+int mainMenu();
+int pharmacyMenu();
+int surgeryMenu();
 
 int main()
 {
   /*
     main program execution:
-      1) Pick surgerytype, medication type, check out
+      1) Pick surgery type, medication type, check out
       2) Display total charges
   */
+
+  // init objects
+  PatientAccount patient;
+  Pharmacy pharmacy;
+  Surgery surgery;
+
+  int option;
+  do
+  {
+    option = mainMenu();
+    switch (option)
+    {
+    case 1:
+      surgery.addSurgery(patient);
+      break;
+    case 2:
+      pharmacy.addMedication(patient);
+      break;
+    case 3:
+      cout << "Total Charges: $";
+      cout << patient.getCharges();
+      cout << endl;
+    }
+  } while (option < 3);
 
   return 0;
 }
 
-int displayPatientMenu()
+int mainMenu()
 {
-  string selection;
-
+  // display menu
   cout << "Select an option:" << endl;
-  cout << "\t1) Surgery" << endl;
-  cout << "\t2) Medication" << endl;
-  cout << "\t3) Check out" << endl;
+  cout << "  1) Surgery" << endl;
+  cout << "  2) Medication" << endl;
+  cout << "  3) Check out" << endl;
 
-  do
+  // loop for user input and validation
+  string selection;
+  while (true)
   {
     cout << "\n> ";
-    cin >> selection;
+    getline(cin, selection);
 
-    switch (selection)
-    {
-    case "1":
-    case "2":
-    case "3":
-      return int(selection);
-    case "":
-      cout << "\nEmpty string: terminating";
-      return 0;
-    default:
+    if (selection.length() == 1 && isdigit(selection.front()) && stoi(selection) > 0 && stoi(selection) <= 3)
+      break;
+    else
       cout << "\nInvalid Selection\n";
-    }
-  } while (selection != "")
+  }
+
+  return stoi(selection);
 }
