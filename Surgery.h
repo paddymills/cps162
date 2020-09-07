@@ -2,17 +2,16 @@
 
 class PatientAccount;
 
-enum SurgeryType
-{
-  Appendectomy,
-  HepaticResection,
-  Arthroscopy,
-  Laparoscopy,
-  GastricBypass
-};
-
 #ifndef SURGERY_H
 #define SURGERY_H
+enum SurgeryType
+{
+  APPENDECTOMY,
+  HEPATIC_RESECTION,
+  ARTHROSCOPY,
+  LAPAROSCOPY,
+  GASTRIC_BYPASS
+};
 class Surgery
 {
 public:

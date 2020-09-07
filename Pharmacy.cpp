@@ -4,19 +4,19 @@ void Pharmacy::addMedication(MedicationType m, PatientAccount &p)
 {
   switch (m)
   {
-  case MedicationType::Gabapentin:
+  case GABAPENTIN:
     p.addCharge(50.0);
     break;
-  case MedicationType::Vicodin:
+  case VICODIN:
     p.addCharge(70.0);
     break;
-  case MedicationType::Metformin:
+  case METFORMIN:
     p.addCharge(25.0);
     break;
-  case MedicationType::Hydrocodone:
+  case HYDROCODONE:
     p.addCharge(45.0);
     break;
-  case MedicationType::Acetaminophen:
+  case ACETAMINOPHEN:
     p.addCharge(10.0);
     break;
   }

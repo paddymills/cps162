@@ -2,17 +2,18 @@
 
 class PatientAccount;
 
-enum MedicationType
-{
-  Gabapentin,
-  Vicodin,
-  Metformin,
-  Hydrocodone,
-  Acetaminophen
-};
-
 #ifndef PHARMACY_H
 #define PHARMACY_H
+
+enum MedicationType
+{
+  GABAPENTIN,
+  VICODIN,
+  METFORMIN,
+  HYDROCODONE,
+  ACETAMINOPHEN
+};
+
 class Pharmacy
 {
 public:
