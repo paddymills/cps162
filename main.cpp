@@ -12,6 +12,7 @@ SurgeryType surgeryMenu();
 MedicationType pharmacyMenu();
 
 int validateInput(string);
+int getDays(string);
 
 int main()
 {
@@ -45,12 +46,19 @@ int main()
       pharmacyOption = pharmacyMenu();
       pharmacy.addMedication(pharmacyOption, patient);
       break;
-    case 3: // print out bill
+    case 3: // add day(s) to stay
+      patient.addDays(getDays());
+      break;
+    case 4: // print out bill
+      cout << "Duration of stay: ";
+      cout << patient.getDaysSentInHospital();
+      cout << endl;
+
       cout << "Total Charges: $";
       cout << patient.getCharges();
       cout << endl;
     }
-  } while (mainOption != 3); // quits if option was print out bill
+  } while (mainOption != 4); // quits if option was print out bill
 
   return 0;
 }
@@ -83,13 +91,52 @@ bool validateInput(string input, int maxIndex)
     return true;
 }
 
+int getDays()
+{
+  // loop for user input and validation
+  string input;
+  while (true)
+  {
+    cout << "\nDay(s) > ";
+    getline(cin, input);
+
+    if (input.length() < 1)
+    {
+      cout << "!! Please enter a value !!";
+    }
+
+    bool isNumber = true;
+    for (int i = 0; i < input.length(); i++)
+    {
+      if (!isdigit(input.at(i)))
+      {
+        isNumber = false;
+        break;
+      }
+    }
+    if (!isNumber)
+    {
+      cout << "!! Days entered is not a numeric value !!";
+    }
+    else if (stoi(input) < 0)
+    {
+      cout << "!! Days cannot be negative !!";
+    }
+    else
+      break;
+  }
+
+  return stoi(input);
+}
+
 int mainMenu()
 {
   // display menu
   cout << "Select an option:" << endl;
   cout << "  1) Surgery" << endl;
   cout << "  2) Medication" << endl;
-  cout << "  3) Check out" << endl;
+  cout << "  3) Add day(s) to sayt" << endl;
+  cout << "  4) Check out" << endl;
 
   // loop for user input and validation
   string selection;
@@ -97,7 +144,7 @@ int mainMenu()
   {
     cout << "\n> ";
     getline(cin, selection);
-  } while (!validateInput(selection, 3));
+  } while (!validateInput(selection, 4));
 
   return stoi(selection);
 }

@@ -23,5 +23,5 @@ int PatientAccount::getDaysSentInHospital() const
 
 double PatientAccount::getCharges() const
 {
-  return charges;
+  return daysSpentInHospital * 60.0 + charges;
 }
