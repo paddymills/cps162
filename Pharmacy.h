@@ -1,9 +1,7 @@
-#include "PatientAccount.h"
-
-class PatientAccount;
-
 #ifndef PHARMACY_H
 #define PHARMACY_H
+
+class PatientAccount;
 
 enum MedicationType
 {

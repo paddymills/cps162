@@ -12,7 +12,7 @@ SurgeryType surgeryMenu();
 MedicationType pharmacyMenu();
 
 int validateInput(string);
-int getDays(string);
+int getDays();
 
 int main()
 {
@@ -135,7 +135,7 @@ int mainMenu()
   cout << "Select an option:" << endl;
   cout << "  1) Surgery" << endl;
   cout << "  2) Medication" << endl;
-  cout << "  3) Add day(s) to sayt" << endl;
+  cout << "  3) Add day(s) to stay" << endl;
   cout << "  4) Check out" << endl;
 
   // loop for user input and validation
@@ -195,7 +195,7 @@ MedicationType pharmacyMenu()
   cout << "  2) Vicodin" << endl;
   cout << "  3) Metformin" << endl;
   cout << "  4) Hydrocodone" << endl;
-  cout << "  5) Acetaminophe" << endl;
+  cout << "  5) Acetaminophen" << endl;
   cout << "  6) Exit menu" << endl;
 
   // loop for user input and validation

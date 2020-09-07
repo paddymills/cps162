@@ -1,9 +1,8 @@
-#include "PatientAccount.h"
+#ifndef SURGERY_H
+#define SURGERY_H
 
 class PatientAccount;
 
-#ifndef SURGERY_H
-#define SURGERY_H
 enum SurgeryType
 {
   APPENDECTOMY,

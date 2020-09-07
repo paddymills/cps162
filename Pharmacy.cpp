@@ -1,4 +1,5 @@
 #include "Pharmacy.h"
+#include "PatientAccount.h"
 
 void Pharmacy::addMedication(MedicationType m, PatientAccount &p)
 {
