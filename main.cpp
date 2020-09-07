@@ -57,6 +57,13 @@ int main()
 
 bool validateInput(string input, int maxIndex)
 {
+  /*
+    Checks for valid list index input:
+      - Single digit length
+      - Numeric input
+      - values greater than 1
+      - values less than the max acceptable index
+  */
   if (input.length() != 1)
   {
     cout << "!! Selection text does not match expected length !!";
@@ -104,6 +111,7 @@ SurgeryType surgeryMenu()
   cout << "  3) Arthroscopy" << endl;
   cout << "  4) Laparoscopy" << endl;
   cout << "  5) Gastric Bypass" << endl;
+  cout << "  6) Exit menu" << endl;
 
   // loop for user input and validation
   string selection;
@@ -111,8 +119,10 @@ SurgeryType surgeryMenu()
   {
     cout << "\n> ";
     getline(cin, selection);
-  } while (!validateInput(selection, 5));
+  } while (!validateInput(selection, 6));
 
+  // return appropriate surgery enum
+  // default (option 6) will add nothing in addSurgery() function
   switch (stoi(selection))
   {
   case 1:
@@ -124,7 +134,9 @@ SurgeryType surgeryMenu()
   case 4:
     return LAPAROSCOPY;
   case 5:
-    return GABAPENTIN;
+    return GASTRIC_BYPASS;
+  default:
+    return NO_SURGERY;
   }
 }
 
@@ -137,6 +149,7 @@ MedicationType pharmacyMenu()
   cout << "  3) Metformin" << endl;
   cout << "  4) Hydrocodone" << endl;
   cout << "  5) Acetaminophe" << endl;
+  cout << "  6) Exit menu" << endl;
 
   // loop for user input and validation
   string selection;
@@ -144,8 +157,10 @@ MedicationType pharmacyMenu()
   {
     cout << "\n> ";
     getline(cin, selection);
-  } while (!validateInput(selection, 5));
+  } while (!validateInput(selection, 6));
 
+  // return appropriate medication enum
+  // default (option 6) will add nothing in addMedication() function
   switch (stoi(selection))
   {
   case 1:
@@ -158,5 +173,7 @@ MedicationType pharmacyMenu()
     return HYDROCODONE;
   case 5:
     return ACETAMINOPHEN;
+  default:
+    return NO_MEDICATION;
   }
 }

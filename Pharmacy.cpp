@@ -19,5 +19,7 @@ void Pharmacy::addMedication(MedicationType m, PatientAccount &p)
   case ACETAMINOPHEN:
     p.addCharge(10.0);
     break;
+  default:
+    break;
   }
 }

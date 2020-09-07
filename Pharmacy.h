@@ -11,7 +11,8 @@ enum MedicationType
   VICODIN,
   METFORMIN,
   HYDROCODONE,
-  ACETAMINOPHEN
+  ACETAMINOPHEN,
+  NO_MEDICATION
 };
 
 class Pharmacy

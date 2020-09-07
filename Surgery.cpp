@@ -19,5 +19,7 @@ void Surgery::addSurgery(SurgeryType s, PatientAccount &p)
   case GASTRIC_BYPASS:
     p.addCharge(8000.0);
     break;
+  default:
+    break;
   }
 }
