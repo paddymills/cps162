@@ -50,13 +50,7 @@ int main()
       patient.addDays(getDays());
       break;
     case 4: // print out bill
-      cout << "Duration of stay: ";
-      cout << patient.getDaysSentInHospital();
-      cout << endl;
-
-      cout << "Total Charges: $";
-      cout << patient.getCharges();
-      cout << endl;
+      patient.displaySummary();
     }
   } while (mainOption != 4); // quits if option was print out bill
 
