@@ -1,5 +1,5 @@
 // Implementation file for the FeetInches class
-#include <cstdlib>  // Needed for abs()
+#include <cstdlib> // Needed for abs()
 #include "FeetInches.h"
 
 //************************************************************
@@ -30,7 +30,7 @@ void FeetInches::simplify()
 // Overloaded binary + operator.               *
 //**********************************************
 
-FeetInches FeetInches::operator + (const FeetInches &right)
+FeetInches FeetInches::operator+(const FeetInches &right)
 {
 	FeetInches temp;
 
@@ -40,18 +40,17 @@ FeetInches FeetInches::operator + (const FeetInches &right)
 	return temp;
 }
 
-
 //**********************************************
 // Overloaded binary - operator.               *
 //**********************************************
 
-FeetInches FeetInches::operator - (const FeetInches &right)
+FeetInches FeetInches::operator-(const FeetInches &right)
 {
 	FeetInches temp;
 
 	temp.inches = inches - right.inches;
 	temp.feet = feet - right.feet;
-	temp.simplify();	
+	temp.simplify();
 	return temp;
 }
 
@@ -60,7 +59,7 @@ FeetInches FeetInches::operator - (const FeetInches &right)
 // be incremented. Returns the incremented object.            *
 //*************************************************************
 
-FeetInches FeetInches::operator ++ ()
+FeetInches FeetInches::operator++()
 {
 	++inches;
 	simplify();
@@ -73,7 +72,7 @@ FeetInches FeetInches::operator ++ ()
 // increment.                                                   *
 //***************************************************************
 
-FeetInches FeetInches::operator ++ (int)
+FeetInches FeetInches::operator++(int)
 {
 	FeetInches temp(feet, inches);
 
@@ -87,7 +86,7 @@ FeetInches FeetInches::operator ++ (int)
 // is set to a value greater than that of right.             *
 //************************************************************
 
-bool FeetInches::operator > (const FeetInches &right)
+bool FeetInches::operator>(const FeetInches &right)
 {
 	bool status;
 
@@ -106,7 +105,7 @@ bool FeetInches::operator > (const FeetInches &right)
 // is set to a value less than that of right.                *
 //************************************************************
 
-bool FeetInches::operator < (const FeetInches &right)
+bool FeetInches::operator<(const FeetInches &right)
 {
 	bool status;
 
@@ -125,7 +124,7 @@ bool FeetInches::operator < (const FeetInches &right)
 // is set to a value equal to that of right.                  *
 //*************************************************************
 
-bool FeetInches::operator == (const FeetInches &right)
+bool FeetInches::operator==(const FeetInches &right)
 {
 	bool status;
 
@@ -136,6 +135,25 @@ bool FeetInches::operator == (const FeetInches &right)
 
 	return status;
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// operators part of ch14 lab
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bool FeetInches::operator<=(const FeetInches &other)
+{
+	return (*this < other || *this == other);
+}
+bool FeetInches::operator>=(const FeetInches &other)
+{
+	return (*this > other || *this == other);
+}
+bool FeetInches::operator!=(const FeetInches &other)
+{
+	return !(*this == other);
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// end ch14 lab section
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //********************************************************
 // Overloaded << operator. Gives cout the ability to     *
@@ -153,7 +171,7 @@ ostream &operator<<(ostream &strm, const FeetInches &obj)
 // store user input directly into FeetInches objects.    *
 //********************************************************
 
-istream &operator >> (istream &strm, FeetInches &obj)
+istream &operator>>(istream &strm, FeetInches &obj)
 {
 	// Prompt the user for the feet.
 	cout << "Feet: ";
@@ -187,7 +205,7 @@ FeetInches::operator double()
 // to an int.                                                 *
 //*************************************************************
 
-FeetInches:: operator int()
-{ 
-   return feet; 
+FeetInches::operator int()
+{
+	return feet;
 }

@@ -1,6 +1,7 @@
 // This program demonstrates the the FeetInches class's
 // conversion functions.
 #include <iostream>
+#include <string>
 #include "FeetInches.h"
 using namespace std;
 
@@ -13,27 +14,36 @@ using namespace std;
       and demonstrate these 3 in a program
 */
 
+string truthy(bool x)
+{
+   if (x == 0)
+      return "False";
+   return "True";
+}
+
 int main()
 {
-   double d; // To hold double input
-   int i;    // To hold int input
+   FeetInches dist1 = FeetInches(2, 3);
+   FeetInches dist2 = FeetInches(2, 1);
+   FeetInches dist3 = FeetInches(2, 5);
+   FeetInches dist4 = FeetInches(3, 1);
+   FeetInches dist5 = FeetInches(2, 3);
 
-   // Define a FeetInches object.
-   FeetInches distance;
+   // demonstrate <=
+   cout << dist1 << " <= " << dist2 << " is " << truthy(dist1 <= dist2) << endl;
+   cout << dist1 << " <= " << dist3 << " is " << truthy(dist1 <= dist3) << endl;
+   cout << dist1 << " <= " << dist4 << " is " << truthy(dist1 <= dist4) << endl;
+   cout << dist1 << " <= " << dist5 << " is " << truthy(dist1 <= dist5) << endl;
 
-   // Get a distance from the user.
-   cout << "Enter a distance in feet and inches:\n";
-   cin >> distance;
+   // demonstrate >=
+   cout << dist1 << " >= " << dist2 << " is " << truthy(dist1 >= dist2) << endl;
+   cout << dist1 << " >= " << dist3 << " is " << truthy(dist1 >= dist3) << endl;
+   cout << dist1 << " >= " << dist4 << " is " << truthy(dist1 >= dist4) << endl;
+   cout << dist1 << " >= " << dist5 << " is " << truthy(dist1 >= dist5) << endl;
 
-   // Convert the distance object to a double.
-   d = distance;
-
-   // Convert the distance object to an int.
-   i = distance;
-
-   // Display the values.
-   cout << "The value " << distance;
-   cout << " is equivalent to " << d << " feet\n";
-   cout << "or " << i << " feet, rounded down.\n";
-   return 0;
+   // demonstrate !=
+   cout << dist1 << " != " << dist2 << " is " << truthy(dist1 != dist2) << endl;
+   cout << dist1 << " != " << dist3 << " is " << truthy(dist1 != dist3) << endl;
+   cout << dist1 << " != " << dist4 << " is " << truthy(dist1 != dist4) << endl;
+   cout << dist1 << " != " << dist5 << " is " << truthy(dist1 != dist5) << endl;
 }
