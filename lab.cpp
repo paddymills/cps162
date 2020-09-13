@@ -4,10 +4,19 @@
 #include "FeetInches.h"
 using namespace std;
 
+/*
+   Instructions:
+      modify FeetInches to overload the following operators:
+         - <=
+         - >=
+         - !=
+      and demonstrate these 3 in a program
+*/
+
 int main()
 {
-   double d;  // To hold double input
-   int i;     // To hold int input
+   double d; // To hold double input
+   int i;    // To hold int input
 
    // Define a FeetInches object.
    FeetInches distance;
