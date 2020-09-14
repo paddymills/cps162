@@ -162,7 +162,9 @@ bool FeetInches::operator!=(const FeetInches &other)
 
 ostream &operator<<(ostream &strm, const FeetInches &obj)
 {
-	strm << obj.feet << " feet, " << obj.inches << " inches";
+	// ch14 lab: make this more readable by conventional formats
+	// strm << obj.feet << " feet, " << obj.inches << " inches";
+	strm << obj.feet << "'-" << obj.inches << '"';
 	return strm;
 }
 
