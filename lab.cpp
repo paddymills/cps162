@@ -1,7 +1,6 @@
 // This program demonstrates the the FeetInches class's
 // conversion functions.
 #include <iostream>
-#include <iomanip>
 #include <string>
 #include "FeetInches.h"
 using namespace std;
