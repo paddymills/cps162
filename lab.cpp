@@ -11,7 +11,7 @@ using namespace std;
          - <=
          - >=
          - !=
-      and demonstrate these 3 in a program
+      and demonstrate ALL overloaded operators
 */
 
 string truthy(bool x)
@@ -21,34 +21,46 @@ string truthy(bool x)
 
    if (x == 0)
       return "False";
-   return "True ";
-}
-
-void print_line(FeetInches &a, FeetInches &b)
-{
-   cout << "| " << a << " | " << b << " | ";
-   cout << truthy(a <= b) << " | ";
-   cout << truthy(a >= b) << " | ";
-   cout << truthy(a != b) << " |" << endl;
+   return "True";
 }
 
 int main()
 {
    FeetInches dist1 = FeetInches(2, 3);
    FeetInches dist2 = FeetInches(2, 1);
-   FeetInches dist3 = FeetInches(2, 5);
-   FeetInches dist4 = FeetInches(3, 1);
-   FeetInches dist5 = FeetInches(2, 3);
-
-   // header
-   cout << "-----------------------------------------" << endl;
-   cout << "|   a   |   b   | a<=b  | a>=b  | a!=b  |" << endl;
-   cout << "-----------------------------------------" << endl;
-
-   print_line(dist1, dist2);
-   print_line(dist1, dist3);
-   print_line(dist1, dist4);
-   print_line(dist1, dist5);
 
    cout << "-----------------------------------------" << endl;
+
+   // addition/subtraction
+   cout << "Addition/Subtraction Operators" << endl;
+   cout << dist1 << " + " << dist2 << " = " << dist1 + dist2 << endl;
+   cout << dist1 << " - " << dist2 << " = " << dist1 - dist2 << endl;
+
+   cout << "-----------------------------------------" << endl;
+
+   // relational
+   cout << "Relational operators" << endl;
+   cout << dist1 << " >  " << dist2 << " : " << truthy(dist1 > dist2) << endl;
+   cout << dist1 << " <  " << dist2 << " : " << truthy(dist1 < dist2) << endl;
+   cout << dist1 << " <= " << dist2 << " : " << truthy(dist1 <= dist2) << endl;
+   cout << dist1 << " >= " << dist2 << " : " << truthy(dist1 >= dist2) << endl;
+   cout << dist1 << " == " << dist2 << " : " << truthy(dist1 == dist2) << endl;
+   cout << dist1 << " != " << dist2 << " : " << truthy(dist1 != dist2) << endl;
+
+   cout << "-----------------------------------------" << endl;
+
+   // prefix/postfix
+   cout << "Prefix/Postfix" << endl;
+   cout << "++" << dist1 << " :" << endl;
+   cout << "\tBefore Call: " << dist1 << endl;
+   cout << "\tCall Return: " << ++dist1 << endl;
+   cout << "\tAfter Call: " << dist1 << endl;
+   cout << dist1 << "++ :" << endl;
+   cout << "\tBefore Call: " << dist1 << endl;
+   cout << "\tCall Return: " << dist1++ << endl;
+   cout << "\tAfter Call: " << dist1 << endl;
+
+   cout << "-----------------------------------------" << endl;
+
+   return 0;
 }
