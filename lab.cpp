@@ -26,41 +26,33 @@ string truthy(bool x)
 
 int main()
 {
-   FeetInches dist1 = FeetInches(2, 3);
-   FeetInches dist2 = FeetInches(2, 1);
+   FeetInches dist1(2, 3);
+   FeetInches dist2(2, 3);
+   FeetInches dist3(1, 8);
+   FeetInches dist4(3, 5);
 
-   cout << "-----------------------------------------" << endl;
+   cout << "-----------------------" << endl;
 
-   // addition/subtraction
-   cout << "Addition/Subtraction Operators" << endl;
-   cout << dist1 << " + " << dist2 << " = " << dist1 + dist2 << endl;
-   cout << dist1 << " - " << dist2 << " = " << dist1 - dist2 << endl;
-
-   cout << "-----------------------------------------" << endl;
-
-   // relational
-   cout << "Relational operators" << endl;
-   cout << dist1 << " >  " << dist2 << " : " << truthy(dist1 > dist2) << endl;
-   cout << dist1 << " <  " << dist2 << " : " << truthy(dist1 < dist2) << endl;
+   // less-than or equal to
    cout << dist1 << " <= " << dist2 << " : " << truthy(dist1 <= dist2) << endl;
+   cout << dist1 << " <= " << dist3 << " : " << truthy(dist1 <= dist3) << endl;
+   cout << dist1 << " <= " << dist4 << " : " << truthy(dist1 <= dist4) << endl;
+
+   cout << "-----------------------" << endl;
+
+   // greater-than or equal to
    cout << dist1 << " >= " << dist2 << " : " << truthy(dist1 >= dist2) << endl;
-   cout << dist1 << " == " << dist2 << " : " << truthy(dist1 == dist2) << endl;
+   cout << dist1 << " >= " << dist3 << " : " << truthy(dist1 >= dist3) << endl;
+   cout << dist1 << " >= " << dist4 << " : " << truthy(dist1 >= dist4) << endl;
+
+   cout << "-----------------------" << endl;
+
+   // not equal
    cout << dist1 << " != " << dist2 << " : " << truthy(dist1 != dist2) << endl;
+   cout << dist1 << " != " << dist3 << " : " << truthy(dist1 != dist3) << endl;
+   cout << dist1 << " != " << dist4 << " : " << truthy(dist1 != dist4) << endl;
 
-   cout << "-----------------------------------------" << endl;
-
-   // prefix/postfix
-   cout << "Prefix/Postfix" << endl;
-   cout << "++" << dist1 << " :" << endl;
-   cout << "\tBefore Call: " << dist1 << endl;
-   cout << "\tCall Return: " << ++dist1 << endl;
-   cout << "\tAfter Call: " << dist1 << endl;
-   cout << dist1 << "++ :" << endl;
-   cout << "\tBefore Call: " << dist1 << endl;
-   cout << "\tCall Return: " << dist1++ << endl;
-   cout << "\tAfter Call: " << dist1 << endl;
-
-   cout << "-----------------------------------------" << endl;
+   cout << "-----------------------" << endl;
 
    return 0;
 }
