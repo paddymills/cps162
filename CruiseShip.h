@@ -10,8 +10,11 @@ private:
 
 public:
   CruiseShip();
-  void setPassengerCapacity(int);
-  int getPassengerCapacity();
+  void setCapacity(int);
+  int getCapacity();
+
+  // overload print from base Ship
+  virtual void print();
 };
 
 #endif

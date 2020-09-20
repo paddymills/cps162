@@ -13,13 +13,13 @@ private:
 
 public:
   Ship();
-  Ship(string, string);
   void setName(string);
   void setBuildYear(string);
   string getName();
   string getBuildYear();
+
+  // virtual print method to be overridden
   virtual void print();
-  ~Ship();
 };
 
 #endif

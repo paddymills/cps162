@@ -6,11 +6,15 @@
 class CargoShip : public Ship
 {
 private:
-  int capacity;
+  int cargoCapacity;
 
 public:
   CargoShip();
-  void setCapacity();
+  void setCapacity(int);
+  int getCapacity();
+
+  // overload print from base Ship
+  virtual void print();
 };
 
 #endif

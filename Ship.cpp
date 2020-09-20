@@ -9,12 +9,6 @@ Ship::Ship()
   buildYear = "";
 }
 
-Ship::Ship(string n, string year)
-{
-  name = n;
-  buildYear = year;
-}
-
 void Ship::setName(string n)
 {
   name = n;
@@ -33,4 +27,13 @@ string Ship::getName()
 string Ship::getBuildYear()
 {
   return buildYear;
+}
+
+void Ship::print()
+{
+  // print name and build year
+
+  cout << name << endl;
+  cout << "\tBuild Year: ";
+  cout << buildYear << endl;
 }
