@@ -20,7 +20,7 @@ int main()
   ships[0]->setBuildYear("1820");
 
   // CargoShip constructor
-  ships[1]->setName("Edith Maersk");
+  ships[1]->setName("Edith M\u00E6rsk"); //Edith Maersk (unicode ae)
   ships[1]->setBuildYear("2007");
   // must static_cast because Ship does not have setCapacity
   static_cast<CargoShip *>(ships[1])->setCapacity(156907);
