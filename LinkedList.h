@@ -11,13 +11,7 @@ class LinkedList
 {
 private:
   ListNode *head; // ponter to the head node
-  ListNode *findEnd(ListNode *node)
-  {
-    if (node->next)
-      return findEnd(node->next);
-
-    return node;
-  }
+  ListNode *findEnd(*ListNode);
 
 public:
   // Constructor

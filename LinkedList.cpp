@@ -3,6 +3,15 @@
 #include <iostream>
 using namespace std;
 
+// PRIVATE
+ListNode LinkedList::*findEnd(ListNode *node)
+{
+  if (node->next)
+    return findEnd(node->next);
+
+  return node;
+}
+
 // Constructor
 LinkedList::LinkedList()
 {
