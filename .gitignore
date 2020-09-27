@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# compressed files
+*.zip
+
+# vscode
+.vscode/*
