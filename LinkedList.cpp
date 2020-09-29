@@ -52,12 +52,18 @@ void LinkedList::displayNodes()
   // initialize pointer to head
   nodePtr = head;
 
+  // label output
+  cout << "Node Values:";
+
   // iterate through list and display each element
   while (nodePtr)
   {
-    cout << nodePtr->value << endl;
+    cout << " " << nodePtr->value;
 
     // set pointer to next
     nodePtr = nodePtr->next;
   }
+
+  // terminate line
+  cout << endl;
 }
