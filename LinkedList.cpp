@@ -4,7 +4,7 @@
 using namespace std;
 
 // PRIVATE
-ListNode LinkedList::*findEnd(ListNode *node)
+ListNode *LinkedList::findEnd(ListNode *node)
 {
   if (node->next)
     return findEnd(node->next);
