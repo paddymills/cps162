@@ -12,6 +12,7 @@ class LinkedList
 private:
   ListNode *head; // ponter to the head node
   ListNode *findEnd(ListNode *);
+  void deleteAllAfter(ListNode *);
 
 public:
   // Constructor
@@ -22,7 +23,7 @@ public:
 
   // member methods
   void appendNode(int);
-  void insertNode(int);
+  void insertNode(int, int);
   void deleteNode(int);
 
   void displayNodes();
