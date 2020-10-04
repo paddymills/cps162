@@ -12,6 +12,7 @@ class LinkedList
 private:
   ListNode *head; // ponter to the head node
   ListNode *findEnd(ListNode *);
+  ListNode *findIndex(ListNode *, int, int);
   void deleteAllAfter(ListNode *);
 
 public:

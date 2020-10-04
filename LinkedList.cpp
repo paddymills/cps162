@@ -7,7 +7,7 @@ using namespace std;
 // ~               PRIVATE              ~
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// recursive methods
+// recursively finds the end of the list
 ListNode *LinkedList::findEnd(ListNode *node)
 {
   if (node->next)
@@ -16,6 +16,23 @@ ListNode *LinkedList::findEnd(ListNode *node)
   return node;
 }
 
+// recursively finds node at specific index
+// ***        returns node BEFORE index        ***
+// ^^^ so that a insertion/deletion can happen ^^^
+ListNode *LinkedList::findIndex(ListNode *currentPosition, int indexCounter, int wantedIndex)
+{
+  // reached wanted index
+  if (indexCounter == wantedIndex - 1)
+    return currentPosition;
+
+  // reached end of list
+  if (!currentPosition->next)
+    return currentPosition;
+
+  return findIndex(currentPosition->next, ++indexCounter, wantedIndex);
+}
+
+// recursively deletes all elements after the given node
 void LinkedList::deleteAllAfter(ListNode *node)
 {
   // deletes all elements after node
@@ -63,16 +80,19 @@ void LinkedList::insertNode(int number, int index)
   ListNode *temp = head;
   ListNode *prevElem = nullptr;
 
-  int counter = 0;
-  while (counter < index)
+  if (index == 0)
   {
-    prevElem = temp;
-    temp = temp->next;
-    counter++;
+    // repoint head
+    newNode->next = head->next;
+    head = newNode;
+
+    return;
   }
 
+  prevElem = findIndex(head, 0, index);
+
+  newNode->next = prevElem->next;
   prevElem->next = newNode;
-  newNode->next = temp;
 }
 void LinkedList::deleteNode(int index)
 {
@@ -81,6 +101,7 @@ void LinkedList::deleteNode(int index)
 
   if (index == 0)
   {
+    // delete first element (repoint head)
     temp = head->next;
     delete head;
     head = temp;
@@ -88,19 +109,10 @@ void LinkedList::deleteNode(int index)
     return;
   }
 
-  int counter = 0;
-  while (counter < index)
-  {
-    if (!temp->next)
-    {
-      cout << "Error: index past end of list" << endl;
-      return;
-    }
-    prevElem = temp;
-    temp = temp->next;
-    counter++;
-  }
+  // get elem at index
+  prevElem = findIndex(head, 0, index);
 
+  temp = prevElem->next;
   prevElem->next = temp->next;
   delete temp;
 }
