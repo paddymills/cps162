@@ -74,6 +74,14 @@ void LinkedList::appendNode(int number)
 
 void LinkedList::insertNode(int number, int index)
 {
+  /*
+    Inserts number at index:
+      - index 0 puts number at hed
+      - other indexes put item at location and reattach list
+      - indexes higher than length put number at end
+      - negative indexes cause error
+  */
+
   ListNode *newNode = new ListNode();
   newNode->value = number;
 
