@@ -1,6 +1,7 @@
 #include "LinkedList.h"
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,11 +83,9 @@ void LinkedList::insertNode(int number, int index)
       - negative indexes cause error
   */
 
+  // create new node
   ListNode *newNode = new ListNode();
   newNode->value = number;
-
-  ListNode *temp = head;
-  ListNode *prevElem = nullptr;
 
   if (index == 0)
   {
@@ -97,9 +96,17 @@ void LinkedList::insertNode(int number, int index)
     return;
   }
 
+  // temporary nodes for repointing
+  ListNode *temp = head;
+  ListNode *prevElem = nullptr;
+
+  // find prev element of index
+  // if findIndex hits the end of the list
+  // it will return the last element
   prevElem = findIndex(head, 0, index);
 
-  newNode->next = prevElem->next;
+  // put new node in place or at end
+  newNode->next = prevElem->next; // nullptr if at end
   prevElem->next = newNode;
 }
 void LinkedList::deleteNode(int index)
@@ -120,13 +127,32 @@ void LinkedList::deleteNode(int index)
   // get elem at index
   prevElem = findIndex(head, 0, index);
 
+  // repoint previous element to next element
   temp = prevElem->next;
+
+  // if index is after last element, ERROR
+  if (!temp)
+  {
+    cout << "Error: index is after last index. ";
+
+    return;
+  }
+
+  // delete element
   prevElem->next = temp->next;
   delete temp;
 }
 
 void LinkedList::displayNodes()
 {
+  /*
+    Display elements in list notation
+      - right justified
+      - 2 character width
+      - single space delimited
+    i.e. [ 1  2  3  4]
+  */
+
   // pointer for list iteration
   ListNode *nodePtr;
 
@@ -134,17 +160,17 @@ void LinkedList::displayNodes()
   nodePtr = head;
 
   // label output
-  cout << "Node Values:";
+  cout << "[";
 
   // iterate through list and display each element
   while (nodePtr)
   {
-    cout << " " << nodePtr->value;
+    cout << setw(2) << nodePtr->value << " ";
 
     // set pointer to next
     nodePtr = nodePtr->next;
   }
 
   // terminate line
-  cout << endl;
+  cout << "]";
 }

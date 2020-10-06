@@ -5,84 +5,73 @@
 
 using namespace std;
 
-void test_our_list();
-void test_stl();
-
 int main()
 {
-  test_our_list();
-  // test_stl();
+     LinkedList list;
 
-  return 0;
+     const int APPEND_COUNT = 4;
+     const int INSERT_COUNT = 3;
+     const int DELETE_COUNT = 5;
+
+     int appendNumbers[APPEND_COUNT] = {2, 5, 8, 15};
+     int insertNumbers[INSERT_COUNT] = {3, 7, 9};
+     int insertIndexes[INSERT_COUNT] = {1, 3, 15};
+     int deleteIndexes[DELETE_COUNT] = {2, 4, 20, 0, 4};
+
+     cout << right; // numbers: right justification
+
+     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     // ~           append items           ~
+     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cout << "Appending nodes:" << endl;
+     for (int i = 0; i < APPEND_COUNT; i++)
+     {
+          cout << "\tAppending ";
+          cout << setw(2);
+          cout << appendNumbers[i];
+          cout << ": ";
+
+          list.displayNodes();
+          cout << " -> ";
+          list.appendNode(appendNumbers[i]);
+          list.displayNodes();
+          cout << endl;
+     }
+
+     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     // ~           insert items           ~
+     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cout << "Inserting nodes:" << endl;
+     for (int i = 0; i < INSERT_COUNT; i++)
+     {
+          cout << "\tInserting ";
+          cout << setw(2);
+          cout << insertNumbers[i];
+          cout << " at index ";
+          cout << setw(2) << insertIndexes[i];
+          cout << ": ";
+
+          list.displayNodes();
+          cout << " -> ";
+          list.insertNode(insertNumbers[i], insertIndexes[i]);
+          list.displayNodes();
+          cout << endl;
+     }
+
+     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     // ~           delete items           ~
+     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cout << "Deleting nodes:" << endl;
+     for (int i = 0; i < DELETE_COUNT; i++)
+     {
+          cout << "\tDeleting index ";
+          cout << setw(2) << deleteIndexes[i];
+          cout << ": ";
+
+          list.displayNodes();
+          cout << " -> ";
+          list.deleteNode(deleteIndexes[i]);
+          list.displayNodes();
+          cout << endl;
+     }
 }
-
-void test_our_list()
-{
-  LinkedList list;
-
-  cout << left;
-
-  // append items
-  cout << setw(30) << "Appending nodes 2, 5, 8, 15"
-       << "-> ";
-  list.appendNode(2);
-  list.appendNode(5);
-  list.appendNode(8);
-  list.appendNode(15);
-  list.displayNodes();
-
-  // insert items
-  cout << setw(30) << "Insert 3 at index 1"
-       << "-> ";
-  list.insertNode(3, 1);
-  list.displayNodes();
-  cout << setw(30) << "Insert 7 at index 3"
-       << "-> ";
-  list.insertNode(7, 3);
-  list.displayNodes();
-
-  // delete items
-  cout << setw(30) << "Deleting index 2"
-       << "-> ";
-  list.deleteNode(2);
-  list.displayNodes();
-  cout << setw(30) << "Deleting index 4"
-       << "-> ";
-  list.deleteNode(4);
-  list.displayNodes();
-  cout << setw(30) << "Deleting index 1"
-       << "-> ";
-  list.deleteNode(1);
-  list.displayNodes();
-  cout << setw(30) << "Deleting index 0"
-       << "-> ";
-  list.deleteNode(0);
-  list.displayNodes();
-}
-
-void test_stl()
-{
-  list<int> list;
-
-  // append items
-  list.push_back(2);
-  list.push_back(5);
-  list.push_back(8);
-
-  // insert items
-  // int *ref = list.begin();
-  // ref++;
-  // list.insert(ref, 3);
-  // cout << "Insert 3 at index 1" << endl;
-  // display_stl(list);
-}
-
-// void display_stl(forward_list<int> *list)
-// {
-//   cout << "list:" for (auto it = list.begin(); it != list.end(); it++)
-//   {
-//     cout << " " << *it;
-//   }
-
-//   cout << endl;
-// }
