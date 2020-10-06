@@ -11,12 +11,12 @@ int main()
 
      const int APPEND_COUNT = 4;
      const int INSERT_COUNT = 5;
-     const int DELETE_COUNT = 5;
+     const int DELETE_COUNT = 6;
 
      int appendNumbers[APPEND_COUNT] = {2, 5, 8, 15};
      int insertNumbers[INSERT_COUNT] = {3, 4, 7, 1, 9};
      int insertIndexes[INSERT_COUNT] = {1, -3, 3, 0, 15};
-     int deleteIndexes[DELETE_COUNT] = {2, 4, 20, 0, 4};
+     int deleteIndexes[DELETE_COUNT] = {2, 4, 20, 0, 4, -6};
 
      cout << right; // numbers: right justification
 

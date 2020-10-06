@@ -121,6 +121,13 @@ void LinkedList::deleteNode(int index)
   ListNode *temp = head;
   ListNode *prevElem = head;
 
+  if (index < 0)
+  {
+    cout << "Error: negative index. ";
+
+    return;
+  }
+
   if (index == 0)
   {
     // delete first element (repoint head)
