@@ -77,7 +77,7 @@ void LinkedList::insertNode(int number, int index)
 {
   /*
     Inserts number at index:
-      - index 0 puts number at hed
+      - index 0 puts number at head
       - other indexes put item at location and reattach list
       - indexes higher than length put number at end
       - negative indexes cause error
@@ -86,6 +86,13 @@ void LinkedList::insertNode(int number, int index)
   // create new node
   ListNode *newNode = new ListNode();
   newNode->value = number;
+
+  if (index < 0)
+  {
+    cout << "Error: negative index. ";
+
+    return;
+  }
 
   if (index == 0)
   {
