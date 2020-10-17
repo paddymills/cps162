@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iomanip>
+#include <string>
 #include "MathStack.h"
 
 using namespace std;
@@ -10,6 +12,91 @@ using namespace std;
     - addAll: Pops all values off the stack, adds them, and pushes their sum onto the stack
     - mutlAll: Pops all values off the stack, multiplies them, and pushes their product onto the stack
 */
+
+// display prototype
+void displayStackValues(MathStack);
+
+const int NUMBER_DISPLAY_WIDTH = 5;
+const string STACK_SEP = "\t+-------+";
+
+int main()
+{
+  MathStack stack(5);
+
+  // fill with numbers
+  stack.push(42);
+  stack.push(-2);
+  stack.push(100);
+  stack.push(50);
+  stack.push(10);
+
+  cout << "Initial Stack State:" << endl;
+  displayStackValues(stack);
+
+  // test mult
+  stack.mult();
+  cout << "After mult() call:" << endl;
+  displayStackValues(stack);
+
+  // test div
+  stack.div();
+  cout << "After div() call:" << endl;
+  displayStackValues(stack);
+
+  // test addAll
+  stack.addAll();
+  cout << "After addAll() call:" << endl;
+  displayStackValues(stack);
+
+  // add some numbers to test mult
+  cout << "Pushing [5, 82] onto the stack" << endl;
+  stack.push(5);
+  stack.push(82);
+
+  cout << "new Stack State:" << endl;
+  displayStackValues(stack);
+
+  // test multAll
+  stack.multAll();
+  cout << "After multAll() call:" << endl;
+  displayStackValues(stack);
+
+  return 0;
+}
+
+void displayStackValues(MathStack stack)
+{
+  /*
+    Recursively diplays stack:
+      - pops item off stack
+      - calls method if stack is not empty
+      - after recursive call, displays number that was popped
+      - pushes number back on to the stack, to preserve the stack
+
+    This recursive nature is required to 
+  */
+
+  int num;
+
+  // pop number off of stack
+  stack.pop(num);
+
+  if (stack.isEmpty())
+  { // begin display printing (stack is empty)
+    cout << STACK_SEP << endl;
+  }
+  else
+  { // recursive call (stack is not empty)
+    displayStackValues(stack);
+  }
+
+  // display number with formatting
+  cout << "\t| " << setw(NUMBER_DISPLAY_WIDTH) << num << " |" << endl;
+  cout << STACK_SEP << endl;
+
+  // push number back onto stack
+  stack.push(num);
+}
 
 void MathStack::mult()
 {
@@ -45,6 +132,7 @@ void MathStack::addAll()
 {
   int sum, num;
 
+  pop(sum);
   while (!isEmpty())
   {
     // pop number off stack and store in num
@@ -61,20 +149,15 @@ void MathStack::multAll()
 {
   int product, num;
 
+  pop(product);
   while (!isEmpty())
   {
     // pop number off stack and store in num
     pop(num);
 
     // add popped number to product
-    product += num;
+    product *= num;
   }
 
   push(product);
-}
-
-int main()
-{
-
-  return 0;
 }
