@@ -18,7 +18,7 @@ void recLinearSearch(ElementType x[], ElementType item, int n, int start, bool &
         found = true;
         loc = start;
     }
-    else if (start < n && !found)
+    else if (start < n)
         recLinearSearch(x, item, n, ++start, found, loc);
 }
 
@@ -42,7 +42,7 @@ void recLinearSearch(ElementType x[], ElementType item, int n, int start, bool &
 //         recLinkedLinearSearch(*first->next, item, found, locptr);
 // }
 
-void test(int num)
+void test1(int num)
 {
     const int SIZE = 7;
     int a[SIZE] = {1, 2, 3, 4, 5, 6, 7};
@@ -62,9 +62,9 @@ void test(int num)
 
 int main()
 {
-    test(4);
-    test(2);
-    test(8);
+    test1(4);
+    test1(2);
+    test1(8);
 
     return 0;
 }
