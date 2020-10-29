@@ -1,3 +1,8 @@
+/*
+  Patrick Miller
+  Nyhoff Chapter 10 - lab
+*/
+
 #include <iostream>
 #include <string>
 
